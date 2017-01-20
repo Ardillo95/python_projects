@@ -1,0 +1,50 @@
+#:import dp kivy.metrics.dp
+
+<GameScreen>:
+	AnchorLayout:
+		canvas:
+			Color:
+				rgba: .4, .3, 0, 1
+
+			Rectangle:
+				size: self.size
+				pos: self.pos
+
+		BoxLayout:
+			orientation: 'vertical'
+			size_hint: None, None
+			size: dp(500), dp(500)
+
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: None, None
+				size: dp(500), dp(50)
+
+				Label:
+					text: 'SNAKE'
+
+				Label:
+					id: level_label
+
+				BoxLayout:
+					orientation: 'vertical'
+					size_hint: None, None
+					size: dp(125), dp(50)
+
+					Button:
+						text: 'increase'
+						on_press: root.increase_level()
+
+					Button:
+						text: 'decrease'
+						on_press: root.decrease_level()
+
+				Button:
+					text: 'New Game'
+					on_press: root.new_game()
+
+			GridLayout:
+				id: grid_layout
+
+				rows: 21
+				cold: 21
