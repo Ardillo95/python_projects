@@ -1,0 +1,74 @@
+#:import dp kivy.metrics.dp
+
+<GameScreen>:
+	AnchorLayout:
+		canvas:
+			Rectangle:
+				size: self.size
+				pos: self.pos
+				source: 'background.png'
+
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: None, None
+			size: dp(350), dp(500)
+
+			BoxLayout:
+				orientation: 'vertical'
+				size_hint: None, None
+				size: dp(260), dp(500)
+
+				BoxLayout:
+					orientation: 'vertical'
+					size_hint: None, None
+					size: dp(260), dp(30)
+
+					Label:
+						text: 'TETRIS'
+
+				BoxLayout:
+					orientation: 'horizontal'
+					size_hint: None, None
+					size: dp(260), dp(35)
+
+					Label:
+						id: level_label
+
+					Label:
+						text: 'Score:'
+
+					Label:
+						id: score_label
+
+					Button:
+						text: 'Retry'
+						on_press: root.new_game()
+
+				GridLayout:
+					id: grid_layout
+
+					rows: 20
+					cols: 10
+					spacing: 2
+
+			BoxLayout:
+				orientation: 'vertical'
+				size_hint: None, None
+				size: dp(70), dp(500)
+
+				BoxLayout:
+					orientation: 'horizontal'
+					size_hint: None, None
+					size: dp(70), dp(20)
+					padding: 18, 0, 0, -77
+
+					Label:
+						text: 'Next figure'
+
+				GridLayout:
+					id: grid_layout_aux
+					padding: 18, 55, 0, 370
+
+					rows: 4
+					cols: 4
+					spacing: 1
