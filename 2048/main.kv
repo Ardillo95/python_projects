@@ -1,0 +1,38 @@
+#:import dp kivy.metrics.dp
+
+
+<GameScreen>:
+    AnchorLayout:
+        canvas:
+            Color:
+                rgba: .5, .1, .2, 1
+
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            size: dp(400), dp(400)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: dp(400), dp(50)
+                Label:
+                    text: 'Score:'
+
+                Label:
+                    id: lbl_score
+
+                Button:
+                    text: 'New Game'
+                    on_press: root.new_game()
+
+            GridLayout:
+                id: grid_layout
+
+                rows: 4
+                cols: 4
+                spacing: 5
